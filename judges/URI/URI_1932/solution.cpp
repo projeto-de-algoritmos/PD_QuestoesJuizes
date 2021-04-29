@@ -6,26 +6,23 @@ long long int POSSIBILIDADES[200001][2];
 vector<int> VALORES;
 int N, CORRETAGEM;
 
-//dAtual - É o dia atual
-//compra - 0 se nao foi comprado, 1 se foi comprado
+//dAtual -> dia atual
+//compra -> 0 se nao foi comprado, 1 se foi comprado
 long long int calcula(int dAtual, int compra){
     long long int resultado;
 
     if(dAtual >= N) return 0;
 
-    // Se já temos os valores apenas os retorna
-    if(POSSIBILIDADES[dAtual][compra] != -1){
+    // Se ja temos os valores apenas os retorna
+    if(POSSIBILIDADES[dAtual][compra] != -1)
         return POSSIBILIDADES[dAtual][compra];
-    } 
 
-    // Se esta comprado: calcula a possibilidade se ele manteu a empresa / vendeu a empresa
-    if(compra == 1){
+    if(compra == 1)
+        // Se esta comprado: calcula a possibilidade se ele manteu a empresa / vendeu a empresa
         resultado = max(calcula(dAtual+1,1), calcula(dAtual+1, 0) + VALORES[dAtual]);
-    
-    }// Se não esta comprado: calcula se nao denovo / comprou a empresa agora 
-    else {
+    else
+        // Se nao esta comprado: calcula se nao denovo / comprou a empresa agora 
         resultado = max(calcula(dAtual+1, 0), calcula(dAtual+1, 1) - (VALORES[dAtual] + CORRETAGEM));
-    }
     return POSSIBILIDADES[dAtual][compra] = resultado;
 }
 
