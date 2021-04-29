@@ -1,41 +1,59 @@
 #include <bits/stdc++.h>
-//inspired by https://github.com/jackiehluo/practice/blob/master/codeforces/400s/489c-given-length-and-sum-of-digits.cpp
- 
 using namespace std;
  
 int main(){
     
+    // m -> quantidade de digitos
+    // s -> soma de todos os digitos
+    // t -> auxiliar para manipular digitos
+    // i -> auxiliar nos loops
     int m, s, t, i;
     string maximum="", minimum="";
     scanf("%d %d", &m, &s);
  
-    if(s == 0){
+    // Caso base
+    if(s == 0)
+    {
         if(m == 1) printf("0 0\n");
         else printf("-1 -1\n");
         return 0;
     }
  
-    for(i = 0; i < m; i++){
+    // Gerar os digitos que serao usados nos numeros
+    // de tamanho minimo e maximo.
+    for(i = 0; i < m; i++)
+    {
+        // A operacao de minimo serve para excluir
+        // valores maiores do que um digito e pegar
+        // os valores que resultarao na soma s.
         t = min(s, 9);
+        // Convertendo o numero obtido para string
         maximum += t + '0';
+        // Atualizando soma restante
         s -= t;
     }
  
-    if(s!=0){
+    // Se nao for possivel gerar um numero que some ate s...
+    if(s!=0)
+    {
         printf("-1 -1\n");
         return 0;
     }
  
+    // minimum eh o inverso do maximum
     minimum += maximum;
     reverse(minimum.begin(), minimum.end());
- 
+
+    // Itera procurando o primeiro digito diferente de zero.
+    // A ideia eh de que o primeiro digito nunca pode ser nulo
+    // (caso acontecesse teria menos digitos). Se o primeiro
+    // digito nao for zero entao nada acontece.
     for(i = 0; minimum[i]=='0'; i++);
-    //increases the first '0' to '1' and then decreases the first number higher than '0' in '1'
-    //if the first number is not a '0' nothing happens
     minimum[i]--;
     minimum[0]++;
-    
+
+    // printando os numeros
     cout << minimum << " " << maximum << endl;
- 
+
     return 0;
 }
