@@ -35,17 +35,17 @@ int main()
     // n -> numero pedidos
     // p -> numero maximo de pizzas
     int n,p;
-    // lendo quantidade de pedidos, se a
+    // Lendo quantidade de pedidos, se a
     // quantidade for zero o programa acaba
     while(cin >> n, n){
-        // inicializando memoizacao com "infinito"
+        // Inicializando memoizacao com "infinito"
         memset(memo, -1, sizeof memo);
-        // zerando pesos e valores
+        // Zerando pesos e valores
         memset(V, 0, sizeof V);
         memset(W, 0, sizeof W);
-        // lendo numero maximo de pizzas
+        // Lendo numero maximo de pizzas
         cin >> p;
-        // lendo pedidos
+        // Lendo pedidos
         int i = 0;
         while(i < n){
             // V[i] -> tempo total para o pedido ser entregue (valor)
@@ -53,7 +53,7 @@ int main()
             cin >> V[i] >> W[i];
             i++;
         }
-        // valor inteiro que determina o tempo que o
+        // Valor inteiro que determina o tempo que o
         // entregador levara para entregar as pizzas
         cout << knapsack(n-1, p) << " min.\n";
     }

@@ -6,11 +6,11 @@ using namespace std;
 #define MAX_V 1000
 #define MAX_ITENS 1000
 
-// pesos e valores
+// Pesos e valores
 int W[MAX_ITENS];
 int V[MAX_ITENS];
 
-// matriz de memorização
+// Matriz de memorização
 int memo[MAX_W][MAX_V];
 
 int knapsack(int i, int w)
@@ -40,14 +40,14 @@ int main()
     int n, t, i = 0, num = 0;
     // Enquanto tiver atracoes para brincar...
     while(cin >> n >> t, n){
-        // inicializando memoizacao com "infinito"
+        // Inicializando memoizacao com "infinito"
         memset(memo, -1, sizeof memo);
-        // zerando pesos e valores
+        // Zerando pesos e valores
         memset(V, 0, sizeof V);
         memset(W, 0, sizeof W);
-        // incrementar instancia
+        // Incrementar instancia
         num++;
-        // ler W[i] e V[i]
+        // Ler W[i] e V[i]
         // W[i] -> duracao do brinquedo (peso)
         // V[i] -> pontuacao atribuida ao brinquedo (valor)
         i = 0;
@@ -55,10 +55,10 @@ int main()
             cin >> W[i] >> V[i];
             i++;
         }   
-        // instancia atual
+        // Instancia atual
         cout << "Instancia " << num << endl; 
-        // colecao (pode haver repeticoes) de
-        // atracoes que da a maior pontuacao
+        // Colecao (pode haver repeticoes) de
+        // Atracoes que da a maior pontuacao
         cout << knapsack(n-1,t) << endl << endl;
     }    
     return 0;    

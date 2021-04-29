@@ -20,27 +20,27 @@ int ans[1000002];
 // Para cada instancia, imprima o numero minimo de blocos
 // necessarios para obter um bloco de comprimento m.
 int main(){
-    // lendo o numero de instancias
+    // Lendo o numero de instancias
     scanf("%d", &n);
     for(int i = 0; i < n; ++i) {
         int value;
         // value -> comprimento desejado pelo artista
         scanf("%d %d", &m, &value);
-        // inicializando um vetor com todos os comprimentos dos tipos
+        // Inicializando um vetor com todos os comprimentos dos tipos
         int values[m];
-        // lendo os comprimentos de cada tipo
+        // Lendo os comprimentos de cada tipo
         for(int j = 0; j<m; ++j)
             scanf("%d", &values[j]);
-        // definindo comprimento "infinito" na memoizacao
+        // Definindo comprimento "infinito" na memoizacao
         memset(ans, 999999, sizeof(ans));
-        // o numero minimo de blocos para obter um comprimento 0 é 0
+        // O numero minimo de blocos para obter um comprimento 0 é 0
         ans[0] = 0;
-        // percorrendo todos os tipos de bloco
+        // Percorrendo todos os tipos de bloco
         for(int j = 0; j<m; ++j)
-            // para cada tipo j, percorrer do valor k do comprimento
+            // Para cada tipo j, percorrer do valor k do comprimento
             // de tipo j ate atingir um valor k desejado
             for(int k = values[j]; k<=value; k++)
-                // para calcular o comprimento minimo na posicao k,
+                // Para calcular o comprimento minimo na posicao k,
                 // eh preciso comparar o comprimento na posicao k com
                 // o comprimento na posicao k sem o acrescimo do tipo j.
                 // comprimento k -> ans[k]
