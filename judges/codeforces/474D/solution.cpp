@@ -40,17 +40,17 @@ ll fib[100100], ans[100100];
  
 int main()
 {
-	scanf("%d %d", &t, &k);
+    scanf("%d %d", &t, &k);
     // t e k sao sempre menores que 10^5 (esses 100 a mais sao so pra evitar dor
     // de cabeca caso o autor do problema tenha deixado algum erro passar nos
     // casos de teste) e, por conta disso, podemos precomputar todas as
     // respostas da questao previamente.
-	for (int i = 0; i < 100100; ++i)
+    for (int i = 0; i < 100100; ++i)
     {
         // As folhas brancas so podem ser comidas em grupos de k elementos,
         // sendo assim, so existe uma combinacao possivel para valores menores
         // do que k.
-		if(i < k) fib[i] = 1;
+        if(i < k) fib[i] = 1;
         // Aqui esta o pulo do gato, fib[i] nada mais eh do que o fib
         // anterior acrescido de folhas vermelhas mais o fib[i-k] que
         // tem o acrescimo das folhas com k combinacoes.
@@ -60,24 +60,24 @@ int main()
         // fib[i-k] -> mesma ideia do de cima com a diferenca que ao inves de
         // somar 1 folha vermelha em cada, eh somado k folhas brancas em cada
         // grupo.
-		else fib[i] = (fib[i-1]+fib[i-k])%prime;
-	}
+        else fib[i] = (fib[i-1]+fib[i-k])%prime;
+    }
     // O loop anterior ja contem toda a logica essencial para resolver o
     // problema, esse loop a seguir eh responsavel por fazer a soma de
     // todas as solucoes para que, quando for a hora de calcular as
     // combinacoes de um intervalo, seja possivel calcular em O(1).
-	for (int i = 1; i < 100100; ++i)
+    for (int i = 1; i < 100100; ++i)
     {
-		if(i == 1) ans[i] = fib[i];
-		else ans[i] = (ans[i-1] + fib[i])%prime;
-	}
-	while(t--)
+        if(i == 1) ans[i] = fib[i];
+        else ans[i] = (ans[i-1] + fib[i])%prime;
+    }
+    while(t--)
     {
         // Lendo o intervalo
-		scanf("%d %d", &a, &b);
+        scanf("%d %d", &a, &b);
         // Calculando as quantidades de combinacoes dentro do intervalo em O(1).
         // O motivo de usar ans[a-1] eh porque ans[a] esta incluso no intervalo
-		printf("%lld\n", (ans[b]+prime - ans[a-1])%prime);
-	}
-	return 0;
+        printf("%lld\n", (ans[b]+prime - ans[a-1])%prime);
+    }
+    return 0;
 }
