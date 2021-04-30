@@ -19,17 +19,17 @@ de programação dinâmica.
 ![accepted3](https://user-images.githubusercontent.com/78360676/116733129-18d08380-a9c2-11eb-9448-a71f710f2aa8.png)
 
 ## Instalação 
-**Linguagem**: xxxxxx<br>
+**Linguagem**: C++<br>
 **SO utilizado no desenvolvimento**: Debian GNU/Linux
 <br />O unico pré requisito é ter um compilador de C++ instalado
 
 ## Uso 
-<br />O usuário poderá acessar os links das questões e enviar o código para o juiz online
+O usuário poderá acessar os links das questões e enviar o código para o juiz online
 <br />ou se preferir rodar em sua máquina utilizando um compilador de C++ e testar as 
 <br />entradas sugeridas no link das questões
 
 ## Links
-<br /> URI 1034: https://www.urionlinejudge.com.br/judge/pt/problems/view/1034
+ URI 1034: https://www.urionlinejudge.com.br/judge/pt/problems/view/1034
 <br /> URI 1286: https://www.urionlinejudge.com.br/judge/pt/problems/view/1286
 <br /> URI 1487: https://www.urionlinejudge.com.br/judge/pt/problems/view/1487
 <br /> URI 1932: https://www.urionlinejudge.com.br/judge/pt/problems/view/1932
